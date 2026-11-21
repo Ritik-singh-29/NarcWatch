@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-base text-ink font-display antialiased;
+  background-image:
+    radial-gradient(900px 480px at 85% -10%, rgba(199, 165, 74, 0.05), transparent 60%),
+    radial-gradient(700px 500px at -5% 0%, rgba(91, 132, 177, 0.06), transparent 55%);
+  background-attachment: fixed;
+}
+
+@layer components {
+  .glass {
+    @apply bg-panel/80 border border-line/80 rounded-lg backdrop-blur-md shadow-glass;
+  }
+  .eyebrow {
+    @apply font-mono text-[11px] uppercase tracking-[0.22em] text-muted;
+  }
+  .btn-signal {
+    @apply inline-flex items-center gap-2 rounded-md bg-signal px-5 py-3 font-mono text-sm font-semibold text-base
+           transition hover:brightness-110 active:brightness-95 disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 rounded-md border border-line px-5 py-3 font-mono text-sm text-ink
+           transition hover:border-signal/60 hover:text-signal;
+  }
+  /* Case-file section rule: thin gold tick + label, used on report sections */
+  .case-rule {
+    @apply flex items-center gap-2 border-b border-line/70 pb-2 mb-4;
+  }
+  .case-rule::before {
+    content: "";
+    @apply block h-3 w-[3px] bg-signal rounded-sm;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid #c7a54a;
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #22304a;
+  border-radius: 8px;
+}

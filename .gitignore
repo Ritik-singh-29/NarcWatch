@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.env
+.venv/
+node_modules/
+dist/
+dist-preview/
+.DS_Store
+narcwatch.db
+*.db
